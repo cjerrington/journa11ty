@@ -1,0 +1,51 @@
+---
+eleventyComputed: metadata.title
+layout: layouts/home.njk
+eleventyNavigation:
+  key: Home
+  order: 1
+title: My Journal of events
+---
+
+<!--
+<ul>
+{% for post in collections.posts | reverse %}
+  <li>
+    <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
+    <time  datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time> |
+    {%- for tag in post.data.tags | filterTagList -%}
+    {% set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+    <a href="{{ tagUrl | url }}" class="secondary">{{ tag }}</a>
+    {%- endfor %}
+  </li>
+{% endfor -%}
+</ul>
+-->
+
+<section>
+{{ collections.posts | length }} posts are written as of today.
+</section>
+
+<section>
+  {% for group in collections.posts | reverse | batch(4) %}
+  <div class="grid">
+    {% for item in group %}
+    <div>
+      <article>
+        <header>
+          <h3><a href="{{ item.url }}">{{ item.data.title }}</a></h3>
+          <small>
+            <time datetime="{{ item.data.date | htmlDateString }}">{{ item.data.date | readableDate }}</time> | 
+            {%- for tag in item.data.tags | filterTagList -%}
+            {% set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+            <a href="{{ tagUrl | url }}" class="secondary">{{ tag }}</a>
+            {%- endfor %}
+          </small>
+        </header>
+        {{ item.data.description}}
+      </article>
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+</section>

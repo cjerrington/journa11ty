@@ -1,0 +1,34 @@
+{
+  "name": "journa11ty",
+  "version": "1.0.0",
+  "description": "Simple blog style journal using 11ty",
+  "keywords": [
+    "journal",
+    "blog",
+    "11ty",
+    "eleventy"
+  ],
+  "license": "MIT",
+  "author": "Clayton Errington",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "bench": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
+    "watch": "npx @11ty/eleventy --watch",
+    "serve": "npx @11ty/eleventy --serve",
+    "start": "npx @11ty/eleventy --serve --watch",
+    "dev": "npx @11ty/eleventy --serve",
+    "debug": "DEBUG=* npx @11ty/eleventy"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.0",
+    "@11ty/eleventy-navigation": "^1.0.4",
+    "@11ty/eleventy-plugin-rss": "^1.2.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.1",
+    "@picocss/pico": "^2.1.1",
+    "luxon": "^3.5.0",
+    "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^9.2.0",
+    "prismjs": "^1.30.0"
+  }
+}

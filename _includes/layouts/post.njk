@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+---
+<main class="container">
+
+<section id="heading">
+    <h2>{{ title }}</h2>
+
+    <p><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+    {%- if tags.length > 1 %}
+
+    {%- for tag in tags | filterTagList %}
+    {%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+    <a href="{{ tagUrl | url }}">{{ tag }}</a>
+    {%- endfor %}
+    </p>
+    {%- endif %}
+    </section>
+
+    <article>
+
+    {{ content | safe }}
+
+    </article>
+
+</main>
+

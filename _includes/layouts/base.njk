@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+
+    <title>{{ title or metadata.title }}</title>
+    <meta name="description" content="{{ description or metadata.description }}">
+    <meta name="generator" content="{{ eleventy.generator }}">
+
+    <link rel="stylesheet" href="/css/pico.min.css">
+    <link rel="stylesheet" href="/css/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="/css/custom.css">  
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="container wider">
+        <hgroup>
+            <nav>
+                <ul>
+                    <li>
+                        <hgroup>
+                            <h2><a href="{{ metadata.url }}">{{ metadata.title }}</a></h2>
+                            <p>{{ metadata.description }}</p>
+                        </hgroup>
+                    </li>
+                </ul>
+                <ul>
+                    {%- for entry in collections.all | eleventyNavigation %}
+                    <li><a href="{{ entry.url | url }}">{{
+                        entry.title }}</a></li>
+                    {%- endfor %}
+                    <li><a href="#" class="secondary" data-theme-switcher="toggle" title="Toggle Theme">☀</a></li>
+                </ul>
+            </nav>
+        </hgroup>
+
+    </header>
+    <!-- ./ Header -->
+
+    {{ content | safe }}
+
+    <footer class="container center">
+         <small>
+            Made by <a href="https://claytonerrington.com">Clayton</a> with <span style="color: red">❤️</span> + ☕,
+            <a href="https://picocss.com" target="_blank" rel="noreferrer noopener">pico css</a>
+            &amp;
+            <a href="https://11ty.dev" target="_blank" rel="noreferrer noopener">11ty</a>.
+        </small>  
+    </footer>
+
+    <!-- Minimal theme switcher -->
+    <script src="/js/theme-switcher.js"></script>
+
+    <!-- Modal -->
+    <script src="/js/modal.js"></script>
+
+  </body>
+</html>
