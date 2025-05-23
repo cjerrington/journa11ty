@@ -19,5 +19,14 @@
 }
 
 .container:not(.wider) {
-	max-width: 50%;
+	max-width: 800px;
+}
+
+@media (width <= 1250px) {
+  .container:not(.wider) {
+	max-width: 800px;
+	padding-left: 20px;
+	padding-right: 20px;
+ }
+
 }
