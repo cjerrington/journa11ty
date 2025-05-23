@@ -16,6 +16,7 @@ This is a pretty basic and simple start to any 11ty template allowing you some b
 
 - add RSS feeds
 - install and deploy instructions
+- pagination for home page
 
 ## Customizations
 
